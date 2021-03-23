@@ -104,12 +104,14 @@ public class ATM {
 					for (int i = 0; i < countUserAcc; i++) {
 						userAccount[i] = tempAccount[i];
 					}
-					
+				          	
 					userAccount[countUserAcc] = new Account();
 					userAccount[countUserAcc].number = randomAcc;
-			
+					
+					userManager.getUser(identifier).acc = userAccount;
 				}
 				
+				userManager.getUser(identifier).accCount ++;
 				System.out.println("계좌" + randomAcc +"생성 완료");
 				break;
 				
@@ -157,6 +159,8 @@ public class ATM {
 					}
 					
 					System.out.println("계좌 삭제 완료");
+					userManager.user[identifier].acc = userAccount ;
+					
 				}
 				
 				userManager.getUser(identifier).accCount --;
